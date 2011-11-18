@@ -55,7 +55,7 @@ Frequency: %d
 Amount: %s
 Roast: %s
 Origin: %s
-""" % (name, address, cycles, frequency, amount, roast, origin)
+""" % (name, address, int(cycles), int(frequency), amount, roast, origin)
 
             recipients = ['orders@spokenbeans.com']
             from django.core.mail import send_mail
