@@ -26,7 +26,7 @@ class Origin(models.Model):
     def hint(self):
         if self.hint:
             return self.hint
-        else
+        else:
             return self.region
 
     name = models.CharField(max_length=100)
