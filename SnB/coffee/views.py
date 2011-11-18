@@ -7,5 +7,5 @@ from SnB.coffee.models import Origin
 def origins(request):
     origin_list = Origin.objects.all()
     c = {'origin_list': origin_list}
-    return render_to_response('orgins.html', c)
+    return render_to_response('origins.html', c)
  
