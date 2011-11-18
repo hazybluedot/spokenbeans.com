@@ -27,7 +27,7 @@ class Origin(models.Model):
         if self.hint:
             return self.hint
         else:
-            return self.region
+            return self.region.name
 
     name = models.CharField(max_length=100)
     farm = models.CharField(max_length=200)
