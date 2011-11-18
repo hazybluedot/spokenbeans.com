@@ -1,0 +1,18 @@
+{% if active_subscriptions_list %}
+<h3>Active Subscriptions</h3>
+   <ul>
+   {% for subscription in active_subscriptions_list %}
+      <li><a href="/subscriptions/{{ subscription.id }}/">{{ subscription }}</a></li>
+   {% endfor %}
+   </ul>
+{% endif %}
+{% if upcoming_orders_list %}
+   <h3>Upcoming Orders</h3>
+   <ul>
+   {% for order in upcoming_orders_list %}
+   <li><a href="/order/{{ order.id }}/">{{ order }}</a></li>
+   {% endfor %}
+   </ul>
+{% else %}
+   <p>No Active Subscriptions or Orders</p>
+{% endif %}
