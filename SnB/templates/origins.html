@@ -27,14 +27,6 @@
 		  <div id="logo"><a href="index.html"><img src="themes/images/logo-large.png" alt="Spoke 'n' Beans" /></a></div>
 		  <div id="title"><img src="themes/images/title-large.png" alt="Spoke 'n' Beans" /></div>
 		  <div id="navigation">
-			<!--
-			<ul>
-			  <li><a href="order.html"><img src="themes/images/button-order.png" /></a></li>
-			  <li><a href="origins.html"><img src="themes/images/button-origins.png" /></a></li>
-			  <li><a href="partners.html"><img src="themes/images/button-partners.png" /></a></li>
-			  <li><a href="story.html"><img src="themes/images/button-story.png" /></a></li>
-			</ul>
-			-->
 			<ul id="navigation-list">
 			  <li id="nav-order"><a href="order.html">Order</a></li>
 			  <li id="nav-origins"><a class="active" href="origins.html">Origins</a></li>
@@ -49,9 +41,9 @@
       <div class="section">
         <div class="section-title"><h2>{{ origin.name }}</h2></div>
 			<div class="section-content">
-        <div class="small">{{ origin.farm }}, {{ origin.region }}</div>
+        <div class="small hint">{{ origin.farm }}, {{ origin.region }}</div>
 			  <p>
-        {{ order.description }}
+        {{ origin.description }}
 			  </p>
 			</div><!--/.section-content -->
 		  </div><!--.section -->
