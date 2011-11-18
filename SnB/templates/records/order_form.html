@@ -2,92 +2,94 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
   <head>
-	<title>Spoke 'n' Beans - Origins</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="/static/themes/default/favicon.ico" type="image/x-icon" />
-	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/layout-fixed.css?9" />
-	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/page-backgrounds.css?9" />
-	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/navigation.css?9" />
-	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/forms.css?9" />
-	<!--
-		<link type="text/css" rel="stylesheet" media="all" href="themes/default/css/nodes.css?9" />
-		-->
-	<!--[if IE]>
-		<link type="text/css" rel="stylesheet" media="all" href="/sites/spokenbeans.com/themes/plain_coffee/css/ie.css?9" />
-		<![endif]-->
-	<!--[if lte IE 6]>
-		<link type="text/css" rel="stylesheet" media="all" href="/sites/spokenbeans.com/themes/plain_coffee/css/ie6.css?9" />
-		<![endif]-->
+    <title>Spoke 'n' Beans - Origins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/static/themes/default/favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/layout-fixed.css?9" />
+    <link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/page-backgrounds.css?9" />
+    <link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/navigation.css?9" />
+    <link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/forms.css?9" />
+    <!--
+    <link type="text/css" rel="stylesheet" media="all" href="themes/default/css/nodes.css?9" />
+    -->
+    <!--[if IE]>
+    <link type="text/css" rel="stylesheet" media="all" href="/sites/spokenbeans.com/themes/plain_coffee/css/ie.css?9" />
+    <![endif]-->
+    <!--[if lte IE 6]>
+    <link type="text/css" rel="stylesheet" media="all" href="/sites/spokenbeans.com/themes/plain_coffee/css/ie6.css?9" />
+    <![endif]-->
   </head>
 
   <body class="page front">
-	<!--div id="skip-link"><a href="#main-menu">Jump to Navigation</a></div-->
-	<div id="page">
-	  <div id="header">
-		<div id="logo"><a href="index.html"><img src="/static/themes/images/logo-large.png" alt="Spoke 'n' Beans" /></a></div>
-		<div id="title"><img src="/static/themes/images/title-large.png" alt="Spoke 'n' Beans" /></div>
-		<div id="navigation">
-		  <ul id="navigation-list">
-			<li id="nav-order"><a class="active" href="order.html">Order</a></li>
-			<li id="nav-origins"><a href="origins.html">Origins</a></li>
-			<li id="nav-partners"><a href="partners.html">Partners</a></li>
-			<li id="nav-story"><a href="story.html">Our Story</a></li>
-		  </ul>
-		</div>
-	  </div><!-- /#header -->
-	  <div id="content"><div id="content-wrapper">
-		  <div id="page-title"><h1>Order</h1></div>
-		  <div class="section">
-			<div class="section-title"><h2>Coffee</h2></div>
-			<div class="section-content">
-			  <div id="stylized">
-				<form id="order" name="form" action="/order.html" method="post">{% csrf_token %}
-				  {{ form.non_field_errors }}
-				  <div id="oragin-section" class="section"><fieldset><legend>Origin</legend>
-					  <!--label for="origin">Origin:</label-->
-					  <div class="error">{{ form.origin.errors }}</div>
-            <ul>
-            {% for origin in origin_list %}
-            <li><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.region }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></li>
-            {% endfor %}
-            </ul>
-          </fieldset></div>
-				  <div id="roast-section" class="section"><fieldset><legend>Roast</legend>
-					  <div class="error">{{ form.roast.errors }}</div>
-					  {{ form.roast }}
-				  </fieldset></div>
-				  <div id="frequency-section" class="section"><fieldset><legend>Frequency</legend>
-					  <div class="error">{{ form.frequency.errors }}</div>
-					  {{ form.frequency }}
-				  </fieldset></div>
-				  <div class="section"><fieldset><legend>Amount</legend>
-					  <span class="error">{{ form.amount.errors }}</span>
-					  {{ form.amount }}
-				  </fieldset></div>
-				  <div class="section"><fieldset><legend>Cycles</legend>
-					  <span class="error">{{ form.cycles.errors }}</span>
-					  {{ form.cycles }} <span class="help_text">{{ form.cycles.help_text }}</span>
-				  </fieldset></div>
-				  <div class="section"><fieldset><legend>Delivery Details</legend>
-					  <ol>
-						<li><label>{{ form.name.label }}: <span class="error">{{ form.name.errors }}</span></label> {{ form.name }}</li>
-						<li><label>{{ form.address.label }}: <span class="small error">{{ form.address.errors }}</span></label> {{ form.address }}</li>
-						<li><label for="city">City:
-							<span class="small hint">within town limits</span></label><input disabled="disabled" type="text" name="city" value="Blacksburg, VA" /></li>
-						<li><label>{{ form.email.label }} <span class="small error">{{ form.email.errors }}</span></label> {{ form.email }}</li>
-					  </ol>
-				  </fieldset></div>
-				  <div class="section">
-					<input type="submit" value="Submit" />
-				  </div>
-				</form>
-			  </div> <!-- /#stylized -->
-			</div><!--/.section-content-->
-		  </div><!--.section -->
-	  </div></div><!-- /#content  -->
-	  <div id="footer">
-		<div id="contact">info@spokenbeans.com</div>
-	  </div>
-	</div><!-- /#page, /#page-wrapper -->
+    <!--div id="skip-link"><a href="#main-menu">Jump to Navigation</a></div-->
+    <div id="page">
+      <div id="header">
+        <div id="logo"><a href="index.html"><img src="/static/themes/images/logo-large.png" alt="Spoke 'n' Beans" /></a></div>
+        <div id="title"><img src="/static/themes/images/title-large.png" alt="Spoke 'n' Beans" /></div>
+        <div id="navigation">
+          <ul id="navigation-list">
+            <li id="nav-order"><a class="active" href="order.html">Order</a></li>
+            <li id="nav-origins"><a href="origins.html">Origins</a></li>
+            <li id="nav-partners"><a href="partners.html">Partners</a></li>
+            <li id="nav-story"><a href="story.html">Our Story</a></li>
+          </ul>
+        </div>
+      </div><!-- /#header -->
+      <div id="content"><div id="content-wrapper">
+          <div id="page-title"><h1>Order</h1></div>
+          <div class="section">
+            <div class="section-title"><h2>Coffee</h2></div>
+            <div class="section-content">
+              <div id="stylized">
+                <form id="order" name="form" action="/order.html" method="post">{% csrf_token %}
+                  {{ form.non_field_errors }}
+                  <div id="oragin-section" class="section"><fieldset><legend>Origin</legend>
+                      <!--label for="origin">Origin:</label-->
+                      <div class="error">{{ form.origin.errors }}</div>
+                      <ul>
+                        {% for origin in origin_list %}
+                        <li><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.region }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></li>
+                        {% endfor %}
+                      </ul>
+                  </fieldset></div>
+                  <div id="roast-section" class="section"><fieldset><legend>Roast</legend>
+                      <div class="error">{{ form.roast.errors }}</div>
+                      {{ form.roast }}
+                  </fieldset></div>
+                  <div id="frequency-section" class="section"><fieldset><legend>Frequency</legend>
+                      <div class="error">{{ form.frequency.errors }}</div>
+                      {{ form.frequency }}
+                  </fieldset></div>
+                  <div class="section"><fieldset><legend>Amount</legend>
+                      <span class="error">{{ form.amount.errors }}</span>
+                      {{ form.amount }}
+                  </fieldset></div>
+                  <div class="section"><fieldset><legend>Cycles</legend>
+                      <span class="error">{{ form.cycles.errors }}</span>
+                      {{ form.cycles }} <span class="help_text">{{ form.cycles.help_text }}</span>
+                  </fieldset></div>
+                  <div class="section"><fieldset><legend>Delivery Details</legend>
+                      <ol>
+                        <li><label>{{ form.name.label }}: <span class="error">{{ form.name.errors }}</span></label> {{ form.name }}</li>
+                        <li><label>{{ form.address.label }}: <span class="small error">{{ form.address.errors }}</span></label> {{ form.address }}</li>
+                        <li><label for="city">City:
+                          <span class="small hint">within town limits</span></label><input disabled="disabled" type="text" name="city" value="Blacksburg, VA" /></li>
+                        <li><label>{{ form.email.label }} <span class="small error">{{ form.email.errors }}</span></label> {{ form.email }}</li>
+                      </ol>
+                  </fieldset></div>
+                  <div class="section">
+                    <ol>
+                      <li><input type="submit" value="Submit" /></li>
+                    </ol>
+                  </div>
+                </form>
+              </div> <!-- /#stylized -->
+            </div><!--/.section-content-->
+          </div><!--.section -->
+      </div></div><!-- /#content  -->
+      <div id="footer">
+        <div id="contact">info@spokenbeans.com</div>
+      </div>
+    </div><!-- /#page, /#page-wrapper -->
   </body>
 </html>
