@@ -31,6 +31,11 @@ def get_next_delivery_date():
 
     return delivery_date
 
+def thanks(request):
+    # TODO: check that this was the result of a order, if not redirect to order form.
+    c = { 'order': None }
+    return render_to_response('thanks.html', c)
+
 def order_form(request):
     origin_list = Origin.objects.all()
     if request.method == 'POST': # if the form has been submitted

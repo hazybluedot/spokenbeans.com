@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'SnB.views.home', name='home'),
     # url(r'^SnB/', include('SnB.foo.urls')),
     url(r'^roastorder/', 'SnB.records.views.current_roast_order'),
+    url(r'^thanks.html', 'SnB.records.views.thanks'),
     url(r'^origins.html', 'SnB.coffee.views.origins'),
     url(r'^order.html', 'SnB.records.views.order_form'),
     # Uncomment the admin/doc line below to enable admin documentation:
