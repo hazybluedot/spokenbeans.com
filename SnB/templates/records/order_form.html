@@ -48,7 +48,7 @@
                       <div class="error">{{ form.origin.errors }}</div>
                       <ul>
                         {% for origin in origin_list %}
-                        <li><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.region }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></li>
+                        <li><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></li>
                         {% endfor %}
                       </ul>
                   </fieldset></div>

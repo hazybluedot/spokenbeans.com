@@ -23,6 +23,12 @@ class Origin(models.Model):
     def short_name(self):
         return self.name.lower().replace(" ", "_")
 
+    def hint(self):
+        if self.hint:
+            return self.hint
+        else
+            return self.region
+
     name = models.CharField(max_length=100)
     farm = models.CharField(max_length=200)
     region = models.ForeignKey('Region')
@@ -31,6 +37,7 @@ class Origin(models.Model):
     hint = models.TextField(blank=True)
     description = models.TextField(blank=True)
     decaf = models.BooleanField(default=False)
+    blend = models.BooleanField(default=False)
     wholesaleprice = models.DecimalField(max_digits=4, decimal_places=2)
 
 class Roast(models.Model):
