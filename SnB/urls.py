@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'SnB.views.home', name='home'),
     # url(r'^SnB/', include('SnB.foo.urls')),
+    url(r'^$', 'SnB.views.home', name='home'),
     url(r'^roastorder/', 'SnB.records.views.current_roast_order'),
     url(r'^thanks.html', 'SnB.records.views.thanks'),
     url(r'^origins.html', 'SnB.coffee.views.origins'),
