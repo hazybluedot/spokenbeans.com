@@ -35,5 +35,5 @@ class OrderForm(forms.Form):
     name = forms.CharField(max_length=100)
     address = forms.CharField()
     email = forms.EmailField()
-    notes = forms.CharField(widget=forms.Textarea, help_text='any special delivery instructions? e.g. leave on the back porch', blank=True)
+    notes = forms.CharField(widget=forms.Textarea, help_text='any special delivery instructions? e.g. leave on the back porch', required=True)
     #cc_myself = forms.BooleanField(required=False)
