@@ -51,7 +51,7 @@ def order_form(request):
             address = form.cleaned_data['address']
             cycles = form.cleaned_data['cycles']
             sender = form.cleaned_data['email']
-            
+            notes = form.cleaned_data['notes'] 
             message = """
 Name: %s
 Address: %s
@@ -60,7 +60,8 @@ Frequency: %s
 Amount: %s
 Roast: %s
 Origin: %s
-""" % (name, address, cycles, frequency, amount, roast, origin)
+Notes: %s
+""" % (name, address, cycles, frequency, amount, roast, origin, notes)
 
             recipients = ['orders@spokenbeans.com']
             from django.core.mail import send_mail
