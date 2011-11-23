@@ -1,4 +1,5 @@
 from django.db import models
+from SnB.coffee.prices import getRetailPrice, addTax
 
 # Create your models here.
 
@@ -23,11 +24,19 @@ class Origin(models.Model):
     def short_name(self):
         return self.name.lower().replace(" ", "_")
 
-    def hint(self):
+    def get_hint(self):
         if self.hint:
             return self.hint
         else:
-            return self.region.name
+            return self.region
+
+    def get_prices(self):
+            price_list = ()
+            price_list += ( addTax(getRetailPrice(float(self.wholesaleprice), 0.77, 0.75), 1.025), )
+            price_list += ( addTax(getRetailPrice(float(self.wholesaleprice), 0.38, 0.85), 1.025), )
+            price_list += ( 14, )
+            price_list += ( 7, )
+            return price_list
 
     name = models.CharField(max_length=100)
     farm = models.CharField(max_length=200)

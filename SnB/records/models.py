@@ -94,12 +94,13 @@ class Order(models.Model):
     id_entity = models.ForeignKey('entitydb.Entity')
     date_placed = models.DateField()
     date_fulfilled = models.DateField(null=True, blank=True)
-    subscription = models.ForeignKey('Subscription', null=True, blank=True)
+    #subscription = models.ForeignKey('Subscription', null=True, blank=True)
     roast = models.ForeignKey('coffee.Roast', null=True, blank=True)
     origin = models.ForeignKey('coffee.Origin', null=True, blank=True)
     region = models.ForeignKey('coffee.Region', null=True, blank=True)
     size = models.DecimalField(max_digits=2,decimal_places=1)
-
+    notes = models.CharField(max_length=255);
+    office = models.BooleanField();
 
 class Runner(models.Model):
     def __unicode__(self):
