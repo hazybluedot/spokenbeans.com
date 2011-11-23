@@ -47,34 +47,38 @@
                       <!--label for="origin">Origin:</label-->
                       <div class="error">{{ form.origin.errors }}</div>
                       <table>
-                        <tr><td>Origin</td><td>Quart</td><td>Pint</td><td>One Time Quart</td><td>One Time Pint</td></tr>
+                        <tr><td></td><td colspan="2">Subscription</td><td colspan="2">One Time</td></tr>
+			<tr><td></td><td>Quart</td><td>Pint</td><td>Quart</td><td>Pint</td></tr>
                         {% for origin in origin_list %}
                         <tr>
                           <td><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
                           {% for price in origin.get_prices %}
-                          <td>${% price %}</td>
+                          <td>${{ price|floatformat:2 }}</td>
                           {% endfor %}
                         </tr>
-                        <!--li><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.get_hint() }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></li-->
                         {% endfor %}
                       </table>
+			<div class="small hint center">All prices include tax.</div>
                   </fieldset></div>
                   <div id="roast-section" class="section"><fieldset><legend>Roast</legend>
                       <div class="error">{{ form.roast.errors }}</div>
                       {{ form.roast }}
                   </fieldset></div>
-                  <div id="frequency-section" class="section"><fieldset><legend>Frequency</legend>
-                      <div class="error">{{ form.frequency.errors }}</div>
-                      {{ form.frequency }}
-                  </fieldset></div>
                   <div class="section"><fieldset><legend>Amount</legend>
                       <span class="error">{{ form.amount.errors }}</span>
                       {{ form.amount }}
                   </fieldset></div>
+                  <div id="frequency-section" class="section"><fieldset><legend>Frequency</legend>
+                      <div class="error">{{ form.frequency.errors }}</div>
+                      {{ form.frequency }}
+                  </fieldset></div>
                   <div class="section"><fieldset><legend>Cycles</legend>
                       <span class="error">{{ form.cycles.errors }}</span>
-                      {{ form.cycles }} <span class="help_text">{{ form.cycles.help_text }}</span>
-                  </fieldset></div>
+                      <ol>
+			<li>{{ form.cycles }} {{ form.cycles.help_text }}</li>
+			</ol>
+                      <div class="small hint center">e.g. 2 cycles will be a total of 8 deliveries made at the frequency you specified above</div>  
+		</fieldset></div>
                   <div class="section"><fieldset><legend>Delivery Details</legend>
                       <ol>
                         <li><label>{{ form.name.label }}: <span class="error">{{ form.name.errors }}</span></label> {{ form.name }}</li>
@@ -83,6 +87,7 @@
                           <span class="small hint">within town limits</span></label><input disabled="disabled" type="text" name="city" value="Blacksburg, VA" /></li>
                         <li><label>{{ form.email.label }} <span class="small error">{{ form.email.errors }}</span></label> {{ form.email }}</li>
                         <li><label>{{ form.notes.label }}: <span class="small hint">{{ form.notes.help_text }}</span></label><input type="text" name="notes" /></li>
+			<li><label>{{ form.office.label }}: <span class="small hint">{{ form.office.help_text }}</span></label><input type="checkbox" name="office" /></li>
                       </ol>
                   </fieldset></div>
                   <div class="section"><fieldset>
