@@ -50,8 +50,8 @@
                         <tr><td>Origin</td><td>Quart</td><td>Pint</td><td>One Time Quart</td><td>One Time Pint</td></tr>
                         {% for origin in origin_list %}
                         <tr>
-                          <td><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.get_hint() }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
-                          {% for price in origin.get_prices() %}
+                          <td><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
+                          {% for price in origin.get_prices %}
                           <td>${% price %}</td>
                           {% endfor %}
                         </tr>
