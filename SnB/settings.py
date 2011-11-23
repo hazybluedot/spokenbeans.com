@@ -4,7 +4,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     ('Darren Maczka', 'info@spokenbeans.com'),
+     ('Darren Maczka', 'dmaczka@spokenbeans.com'),
 )
 
 MANAGERS = ADMINS
@@ -15,7 +15,7 @@ DATABASES = {
         'NAME': 'dmaczka_snb',                      # Or path to database file if using sqlite3.
         'USER': 'dmaczka_snb',                      # Not used with sqlite3.
         'PASSWORD': 'B3ans4Thought',                  # Not used with sqlite3.
-        'HOST': 'web197',                      # Set to empty string for localhost. Not used with sqlite3.
+        #'HOST': 'web197',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
