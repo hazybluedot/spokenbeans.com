@@ -46,11 +46,18 @@
                   <div id="oragin-section" class="section"><fieldset><legend>Origin</legend>
                       <!--label for="origin">Origin:</label-->
                       <div class="error">{{ form.origin.errors }}</div>
-                      <ul>
+                      <table>
+                        <tr><td>Origin</td><td>Quart</td><td>Pint</td><td>One Time Quart</td><td>One Time Pint</td></tr>
                         {% for origin in origin_list %}
-                        <li><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></li>
+                        <tr>
+                          <td><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
+                          {% for price in origin.get_prices %}
+                          <td>${% price %}</td>
+                          {% endfor %}
+                        </tr>
+                        <!--li><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.get_hint() }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></li-->
                         {% endfor %}
-                      </ul>
+                      </table>
                   </fieldset></div>
                   <div id="roast-section" class="section"><fieldset><legend>Roast</legend>
                       <div class="error">{{ form.roast.errors }}</div>
