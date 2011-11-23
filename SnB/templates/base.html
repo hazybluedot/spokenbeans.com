@@ -8,6 +8,7 @@
 	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/layout-fixed.css?9" />
 	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/page-backgrounds.css?9" />
 	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/navigation.css?9" />
+	{% block extrahead %}{% endblock %}
 	<!--
 		<link type="text/css" rel="stylesheet" media="all" href="themes/default/css/nodes.css?9" />
 		<link type="text/css" rel="stylesheet" media="all" href="themes/default/css/forms.css?9" />
@@ -30,7 +31,7 @@
 		<div id="navigation">
 			<ul id="navigation-list">
 			  <li id="nav-order"><a href="order.html">Order</a></li>
-			  <li id="nav-origins"><a class="active" href="origins.html">Origins</a></li>
+			  <li id="nav-origins"><a href="origins.html">Origins</a></li>
 			  <li id="nav-partners"><a href="/static/partners.html">Partners</a></li>
 			  <li id="nav-story"><a href="/static/story.html">Our Story</a></li>
 			</ul>

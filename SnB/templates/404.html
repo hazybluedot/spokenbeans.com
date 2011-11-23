@@ -1,52 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+{% extends "base.html" %}
 
-  <head>
-    <title>Spoke 'n' Beans - Page Not Found</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="shortcut icon" href="/static/themes/default/favicon.ico" type="image/x-icon" />
-    <link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/layout-fixed.css?9" />
-    <link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/page-backgrounds.css?9" />
-    <link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/navigation.css?9" />
-    <link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/forms.css?9" />
-    <!--
-    <link type="text/css" rel="stylesheet" media="all" href="themes/default/css/nodes.css?9" />
-    -->
-    <!--[if IE]>
-    <link type="text/css" rel="stylesheet" media="all" href="/sites/spokenbeans.com/themes/plain_coffee/css/ie.css?9" />
-    <![endif]-->
-    <!--[if lte IE 6]>
-    <link type="text/css" rel="stylesheet" media="all" href="/sites/spokenbeans.com/themes/plain_coffee/css/ie6.css?9" />
-    <![endif]-->
-  </head>
-
-  <body class="page front">
-    <!--div id="skip-link"><a href="#main-menu">Jump to Navigation</a></div-->
-    <div id="page">
-      <div id="header">
-        <div id="logo"><a href="index.html"><img src="/static/themes/images/logo-large.png" alt="Spoke 'n' Beans" /></a></div>
-        <div id="title"><img src="/static/themes/images/title-large.png" alt="Spoke 'n' Beans" /></div>
-        <div id="navigation">
-          <ul id="navigation-list">
-            <li id="nav-order"><a href="order.html">Order</a></li>
-            <li id="nav-origins"><a href="origins.html">Origins</a></li>
-            <li id="nav-partners"><a href="/static/partners.html">Partners</a></li>
-            <li id="nav-story"><a href="/static/story.html">Our Story</a></li>
-          </ul>
-        </div>
-      </div><!-- /#header -->
-      <div id="content"><div id="content-wrapper">
-          <div id="page-title"><h1>We don't know what you want!</h1></div>
+{% block title %}- Page Not Found{% endblock %}
+{% block page_title %}We don't know what you want!{% endblock %}
+{% block content %}
           <div class="section">
             <div class="section-content">
               The page you requested does not exist.  If you arrived at this page by clicking a 
 link on our website, please let us know!
             </div><!--/.section-content-->
           </div><!--.section -->
-      </div></div><!-- /#content  -->
-      <div id="footer">
-        <div id="contact">info@spokenbeans.com</div>
-      </div>
-    </div><!-- /#page, /#page-wrapper -->
-  </body>
-</html>
+{% endblock %}
