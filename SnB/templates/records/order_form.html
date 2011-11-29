@@ -47,11 +47,11 @@
                       <!--label for="origin">Origin:</label-->
                       <div class="error">{{ form.origin.errors }}</div>
                       <table>
-                        <tr><td></td><td colspan="2">Subscription</td><td colspan="2">One Time</td></tr>
-			<tr><td></td><td>Quart</td><td>Pint</td><td>Quart</td><td>Pint</td></tr>
+			<tr><td></td><td>Quart</td><td>Pint</td></tr>
                         {% for origin in origin_list %}
                         <tr>
-                          <td><label for="origin_id_{{ origin.id }}">{{ origin }} <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
+                          <td class="origin"><label for="origin_id_{{ origin.id }}">{{ origin }} 
+<span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
                           {% for price in origin.get_prices %}
                           <td>${{ price|floatformat:2 }}</td>
                           {% endfor %}
@@ -90,7 +90,7 @@
 			<li><label>{{ form.office.label }}: <span class="small hint">{{ form.office.help_text }}</span></label><input type="checkbox" name="office" /></li>
                       </ol>
                   </fieldset></div>
-                  <div class="section"><fieldset>
+                  <div class="section" id="submit"><fieldset>
                     <ol>
                       <li><input type="submit" value="Submit" /></li>
                     </ol>

@@ -34,8 +34,6 @@ class Origin(models.Model):
             price_list = ()
             price_list += ( addTax(getRetailPrice(float(self.wholesaleprice), 0.77, 0.75), 0.025), )
             price_list += ( addTax(getRetailPrice(float(self.wholesaleprice), 0.38, 0.85), 0.025), )
-            price_list += ( 14, )
-            price_list += ( 7, )
             return price_list
 
     name = models.CharField(max_length=100)
