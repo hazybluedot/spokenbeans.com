@@ -35,5 +35,5 @@ class OrderForm(forms.Form):
     name = forms.CharField(max_length=100)
     address = forms.CharField()
     email = forms.EmailField()
-    notes = forms.CharField(widget=forms.Textarea(attrs={'rows': '3'}), help_text='any special delivery instructions? e.g. leave on the back porch', required=True)
-    office = forms.BooleanField(help_text='Office delivery (Mondays)')
+    notes = forms.CharField(widget=forms.Textarea(attrs={'rows': '3'}), help_text='any special delivery instructions? e.g. leave on the back porch', required=False)
+    office = forms.BooleanField(help_text='Office delivery (Mondays)', required=False)

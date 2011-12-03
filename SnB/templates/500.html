@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}- Internal Server Error{% endblock %}
-{% block page_title %}This is bad.{% endblock %}
+{% block title %}- Server Error{% endblock %}
+{% block page_title %}Server Error 500{% endblock %}
 {% block content %}
           <div class="section">
+		<div class="section-title"><h2>This is bad!</h2></div>
             <div class="section-content">
-		The request you made caused the server to vomit.  This is most likely not your fault and due to a bug in our code.  
-Please let us know how you came upon this page.
+		The request you made caused the server to vomit.  This is most likely not your fault but due to a software bug on our end. Please let us know how you came upon this page.
             </div><!--/.section-content-->
           </div><!--.section -->
 {% endblock %}
