@@ -72,7 +72,7 @@ Notes: %s
             return HttpResponseRedirect('/thanks.html') #redirect after POST
 
     else:
-        form = OrderForm(initial={'cycles': '1'}) # an unbound form
+        form = OrderForm(initial={'cycles': '1', 'delivery_day': '1'}) # an unbound form
 
     from django.core.context_processors import csrf
     #t = loader.get_template('records/order_form.html')
