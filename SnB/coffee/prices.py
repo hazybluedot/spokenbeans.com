@@ -1,3 +1,5 @@
+def getCyclistPrice():
+    return (0,0)
 
 def getRetailPrice(wholesale, weight, markup):
     "Given wholesale price, weight (float),  markup percent, calculate retail price"

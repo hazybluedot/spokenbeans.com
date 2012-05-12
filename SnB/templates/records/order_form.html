@@ -40,6 +40,7 @@
           <div class="section">
             <div class="section-title"><h2>Coffee</h2></div>
             <div class="section-content">
+Let us know what you'd like, how frequently, and for how long: For instance, if you'd like to get eight quarts of dark roast every other week, select "Cyclist's Pick", "dark", "quart", "every two weeks", and "2" (for two 4-delivery cycles), and then enter your address.
               <div id="stylized">
                 <form id="order" name="form" action="/order.html" method="post">{% csrf_token %}
                   {{ form.non_field_errors }}
@@ -47,18 +48,39 @@
                       <!--label for="origin">Origin:</label-->
                       <div class="error">{{ form.origin.errors }}</div>
                       <table>
-			<tr><td></td><td>Quart</td><td>Pint</td></tr>
+                        <tr><td></td><td>Quart</td><td>Pint</td></tr>
+			<tr><td colspan="2" align="left"><strong>Single Origin</strong></td></tr>
                         {% for origin in origin_list %}
                         <tr>
                           <td class="origin"><label for="origin_id_{{ origin.id }}">{{ origin }} 
-<span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
+                              <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
+                          {% for price in origin.get_prices %}
+                          <td>${{ price|floatformat:2 }}</td>
+                          {% endfor %}
+                        </tr>
+                        {% endfor %}
+			<tr><td colspan="2" align="left"><strong>Decaf</strong></td></tr>
+                        {% for origin in decaf_list %}
+                        <tr>
+                          <td class="origin"><label for="origin_id_{{ origin.id }}">{{ origin }} 
+                              <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
+                          {% for price in origin.get_prices %}
+                          <td>${{ price|floatformat:2 }}</td>
+                          {% endfor %}
+                        </tr>
+                        {% endfor %}
+			<tr><td colspan="2" align="left"><strong>Mix It Up</strong></td></tr>
+                        {% for origin in blend_list %}
+                        <tr>
+                          <td class="origin"><label for="origin_id_{{ origin.id }}">{{ origin }} 
+                              <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
                           {% for price in origin.get_prices %}
                           <td>${{ price|floatformat:2 }}</td>
                           {% endfor %}
                         </tr>
                         {% endfor %}
                       </table>
-			<div class="small hint center">All prices include tax.</div>
+                      <div class="small hint center">All prices include tax.</div>
                   </fieldset></div>
                   <div id="roast-section" class="section"><fieldset><legend>Roast</legend>
                       <div class="error">{{ form.roast.errors }}</div>
@@ -75,10 +97,14 @@
                   <div class="section"><fieldset><legend>Cycles</legend>
                       <span class="error">{{ form.cycles.errors }}</span>
                       <ol>
-			<li>{{ form.cycles }} {{ form.cycles.help_text }}</li>
-			</ol>
+                        <li>{{ form.cycles }} <span class="label">{{ form.cycles.help_text }}</span></li>
+                      </ol>
                       <div class="small hint center">e.g. 2 cycles will be a total of 8 deliveries made at the frequency you specified above</div>  
-		</fieldset></div>
+                  </fieldset></div>
+                  <div class="section"><fieldset><legend>Preferred Delivery Day</legend>
+                      <span class="error">{{ form.delivery_day.errors }}</span>
+                      {{ form.delivery_day }}
+                  </fieldset></div>
                   <div class="section"><fieldset><legend>Delivery Details</legend>
                       <ol>
                         <li><label>{{ form.name.label }}: <span class="error">{{ form.name.errors }}</span></label> {{ form.name }}</li>
@@ -87,13 +113,12 @@
                           <span class="small hint">within town limits</span></label><input disabled="disabled" type="text" name="city" value="Blacksburg, VA" /></li>
                         <li><label>{{ form.email.label }} <span class="small error">{{ form.email.errors }}</span></label> {{ form.email }}</li>
                         <li><label>{{ form.notes.label }}: <span class="small hint">{{ form.notes.help_text }}</span></label><input type="text" name="notes" /></li>
-			<li><label>{{ form.office.label }}: <span class="small hint">{{ form.office.help_text }}</span></label><input type="checkbox" name="office" /></li>
                       </ol>
                   </fieldset></div>
                   <div class="section" id="submit"><fieldset>
-                    <ol>
-                      <li><input type="submit" value="Submit" /></li>
-                    </ol>
+                      <ol>
+                        <li><input type="submit" value="Submit" /></li>
+                      </ol>
                   </fieldset></div>
                 </form>
               </div> <!-- /#stylized -->

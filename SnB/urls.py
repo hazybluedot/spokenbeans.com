@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^thanks.html$', 'SnB.records.views.thanks'),
     url(r'^origins.html$', 'SnB.coffee.views.origins'),
     url(r'^order.html', 'SnB.records.views.order_form'),
+    url(r'^mailtest$','SnB.records.views.mail_test'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

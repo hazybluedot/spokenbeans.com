@@ -8,6 +8,8 @@
 	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/layout-fixed.css?9" />
 	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/page-backgrounds.css?9" />
 	<link type="text/css" rel="stylesheet" media="all" href="/static/themes/simple_coffee/css/navigation.css?9" />
+	<link rel="icon" href="/static/favicon.ico" type="image/x-icon"> 
+	<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"> 
 	<!--
 		<link type="text/css" rel="stylesheet" media="all" href="themes/default/css/nodes.css?9" />
 		<link type="text/css" rel="stylesheet" media="all" href="themes/default/css/forms.css?9" />
@@ -38,6 +40,7 @@
 		<div id="content"><div id="content-wrapper">
 		  <div id="page-title"><h1>Origins</h1></div>
       {% for origin in origin_list %} 
+      {% if origin.description %}
       <div class="section">
         <div class="section-title"><h2>{{ origin.name }}</h2></div>
 			<div class="section-content">
@@ -47,6 +50,7 @@
 			  </p>
 			</div><!--/.section-content -->
 		  </div><!--.section -->
+      {% endif %}
       {% endfor %}
 		</div></div><!-- /#content  -->
 		<div id="footer">
