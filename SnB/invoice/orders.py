@@ -5,16 +5,16 @@ from SnB.coffee.models import Origin
 
 class OrderForm(forms.Form):
     ROAST_CHOICES=(
-        ('light','light'),
-        ('city','city'),
-        ('dark','dark'),
+        ('light','Light'),
+        ('city','City'),
+        ('dark','Dark'),
         )
     AMOUNT_CHOICES=(
-        ('pint','pint'),
-        ('quart','quart'),
+        ('pint','Pint'),
+        ('quart','Quart'),
         )
     FREQ_CHOICES=(
-        (1,'Every Week'),
+        (1,'Every week'),
         (2,'Every two weeks'),
         (4,'Every four weeks'),
         )
@@ -27,13 +27,17 @@ class OrderForm(forms.Form):
         #('pub', 'Pub Blend', 'like you\'re at the Underground'),
         #('cyc', 'Cyclist\'s Pick', 'We pick, you enjoy'),
         #)
+    DELIVERY_CHOICES=(
+        ('1','Sunday'),
+        ('2','Monday'),
+        )
     origin = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=ORIGIN_CHOICES)
     roast = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=ROAST_CHOICES)
     frequency = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=FREQ_CHOICES)
     amount = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=AMOUNT_CHOICES)
-    cycles = forms.IntegerField(widget=TextInput,  help_text='x4 = total number of deliveries')
+    cycles = forms.CharField(widget=forms.TextInput(attrs={'class':'small'}),  help_text='x4 = total number of deliveries')
     name = forms.CharField(max_length=100)
     address = forms.CharField()
     email = forms.EmailField()
     notes = forms.CharField(widget=forms.Textarea(attrs={'rows': '3'}), help_text='any special delivery instructions? e.g. leave on the back porch', required=False)
-    office = forms.BooleanField(help_text='Office delivery (Mondays)', required=False)
+    delivery_day = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=DELIVERY_CHOICES)

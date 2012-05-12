@@ -41,10 +41,15 @@ class Origin(models.Model):
     region = models.ForeignKey('Region')
     farmURL = models.URLField(blank=True)
     farmLogo = models.ImageField(upload_to='logos', blank=True)
+    #trade = models.CharField(max_length=100, blank=True, choices=(('direct','Direct'), ('other','Other/Unknown')), null=True)
+    #altitude = models.IntegerField(blank=True, help_text="Feet above sealevel", default=-1)
+    #acidity = models.IntegerField(blank=True, choices=(('1','Low'),('2','Medium'),('3','High')), null=True)
+    #body = models.IntegerField(blank=True, choices=(('1','Light'),('2','Medium'),('3','Full')), null=True)
     hint = models.TextField(blank=True)
     description = models.TextField(blank=True)
     decaf = models.BooleanField(default=False)
     blend = models.BooleanField(default=False)
+    available = models.BooleanField(default=False)
     wholesaleprice = models.DecimalField(max_digits=4, decimal_places=2)
 
 class Roast(models.Model):

@@ -151,6 +151,6 @@ LOGGING = {
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_HOST_USER = 'dmaczka_snb'
 EMAIL_HOST_PASSWORD = 'dm@ck234'
-DEFAULT_FROM_EMAIL = 'info@spokenbeans.com'
+DEFAULT_FROM_EMAIL = 'coffeerobot@spokenbeans.com'
 SERVER_EMAIL = 'info@spokenbeans.com'
 
