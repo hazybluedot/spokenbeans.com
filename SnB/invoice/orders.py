@@ -24,7 +24,7 @@ class OrderForm(forms.Form):
 	(2,'8'),
 	(3,'12'),
 	(4,'16'),
-	(5,u"\u221E, billed monthly")
+	(5,u"\u221E, billed monthly", 'cancel or pause at any time')
 	)
 
     ORIGIN_CHOICES=Origin.get_choices()
