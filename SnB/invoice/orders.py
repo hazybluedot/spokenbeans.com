@@ -18,6 +18,15 @@ class OrderForm(forms.Form):
         (2,'Every two weeks'),
         (4,'Every four weeks'),
         )
+
+    CYCLE_CHOICES=(
+	(1,'4'),
+	(2,'8'),
+	(3,'12'),
+	(4,'16'),
+	(5,u"\u221E, billed monthly")
+	)
+
     ORIGIN_CHOICES=Origin.get_choices()
         #(
         #('selva','Selva Negra Estate', 'Nicaragua'),
@@ -28,14 +37,15 @@ class OrderForm(forms.Form):
         #('cyc', 'Cyclist\'s Pick', 'We pick, you enjoy'),
         #)
     DELIVERY_CHOICES=(
-        ('1','Sunday'),
-        ('2','Monday'),
+        ('1','Home'),
+        ('2','Office'),
         )
     origin = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=ORIGIN_CHOICES)
     roast = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=ROAST_CHOICES)
     frequency = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=FREQ_CHOICES)
     amount = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=AMOUNT_CHOICES)
-    cycles = forms.CharField(widget=forms.TextInput(attrs={'class':'small'}),  help_text='x4 = total number of deliveries')
+    cycles = forms.ChoiceField(widget=RadioSelect(renderer=HintedRadioFieldRenderer), choices=CYCLE_CHOICES)
+    #cycles = forms.CharField(widget=forms.TextInput(attrs={'class':'small'}),  help_text='x4 = total number of deliveries')
     name = forms.CharField(max_length=100)
     address = forms.CharField()
     email = forms.EmailField()

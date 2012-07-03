@@ -40,7 +40,8 @@
           <div class="section">
             <div class="section-title"><h2>Coffee</h2></div>
             <div class="section-content">
-Let us know what you'd like, how frequently, and for how long: For instance, if you'd like to get eight quarts of dark roast every other week, select "Cyclist's Pick", "dark", "quart", "every two weeks", and "2" (for two 4-delivery cycles), and then enter your address.
+Let us know what you'd like, how frequently, and for how many deliveries, <!-For instance, if you'd like to get eight quarts of dark roast every other week, 
+select "Cyclist's Pick", "dark", "quart", "every two weeks", and "2" (for two 4-delivery cycles)-->, and then enter your address.
               <div id="stylized">
                 <form id="order" name="form" action="/order.html" method="post">{% csrf_token %}
                   {{ form.non_field_errors }}
@@ -94,14 +95,12 @@ Let us know what you'd like, how frequently, and for how long: For instance, if 
                       <div class="error">{{ form.frequency.errors }}</div>
                       {{ form.frequency }}
                   </fieldset></div>
-                  <div class="section"><fieldset><legend>Cycles</legend>
+                  <div class="section"><fieldset><legend>Total Number of Deliveries</legend>
                       <span class="error">{{ form.cycles.errors }}</span>
-                      <ol>
-                        <li>{{ form.cycles }} <span class="label">{{ form.cycles.help_text }}</span></li>
-                      </ol>
-                      <div class="small hint center">e.g. 2 cycles will be a total of 8 deliveries made at the frequency you specified above</div>  
+			{{ form.cycles }}
+                      <!--div class="small hint center">e.g. 2 cycles will be a total of 8 deliveries made at the frequency you specified above</div-->  
                   </fieldset></div>
-                  <div class="section"><fieldset><legend>Preferred Delivery Day</legend>
+                  <div class="section"><fieldset><legend>Delivery Location</legend>
                       <span class="error">{{ form.delivery_day.errors }}</span>
                       {{ form.delivery_day }}
                   </fieldset></div>
