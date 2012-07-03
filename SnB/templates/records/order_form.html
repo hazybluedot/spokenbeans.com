@@ -54,8 +54,7 @@ Let us know what you'd like, how frequently, and for how many
                         {% for origin in origin_list %}
                         <tr>
                           <td class="origin"><label for="origin_id_{{ origin.id }}">{{ origin }} 
-                              <span class="small hint">{{
-    origin.get_hint }}</span></label><input type="radio"
+                              <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio"
     id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}"
     name="origin" {% if form.data.origin == origin.short_name %}
     checked="true" {% endif %} /></td>
@@ -68,7 +67,10 @@ Let us know what you'd like, how frequently, and for how many
                         {% for origin in decaf_list %}
                         <tr>
                           <td class="origin"><label for="origin_id_{{ origin.id }}">{{ origin }} 
-                              <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
+                              <span class="small hint">{{ origin.get_hint }}</span></label>
+			    <input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin"
+			    {% if form.data.origin ==
+    origin.short_name %} checked="true" {% endif %} /></td>
                           {% for price in origin.get_prices %}
                           <td>${{ price|floatformat:2 }}</td>
                           {% endfor %}
@@ -78,7 +80,11 @@ Let us know what you'd like, how frequently, and for how many
                         {% for origin in blend_list %}
                         <tr>
                           <td class="origin"><label for="origin_id_{{ origin.id }}">{{ origin }} 
-                              <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
+                              <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio"
+    id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}"
+    name="origin"
+			    {% if form.data.origin ==
+			    origin.short_name %} checked="true" {% endif %} /></td>
                           {% for price in origin.get_prices %}
                           <td>${{ price|floatformat:2 }}</td>
                           {% endfor %}
