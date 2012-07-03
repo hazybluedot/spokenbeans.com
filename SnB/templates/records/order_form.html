@@ -54,7 +54,11 @@ Let us know what you'd like, how frequently, and for how many
                         {% for origin in origin_list %}
                         <tr>
                           <td class="origin"><label for="origin_id_{{ origin.id }}">{{ origin }} 
-                              <span class="small hint">{{ origin.get_hint }}</span></label><input type="radio" id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}" name="origin" /></td>
+                              <span class="small hint">{{
+    origin.get_hint }}</span></label><input type="radio"
+    id="origin_id_{{ origin.id }}" value="{{ origin.short_name }}"
+    name="origin" {% if form.data.origin == origin.short_name %}
+    checked="true" {% endif %} /></td>
                           {% for price in origin.get_prices %}
                           <td>${{ price|floatformat:2 }}</td>
                           {% endfor %}
@@ -111,7 +115,9 @@ Let us know what you'd like, how frequently, and for how many
                         <li><label for="city">City:
                           <span class="small hint">within town limits</span></label><input disabled="disabled" type="text" name="city" value="Blacksburg, VA" /></li>
                         <li><label>{{ form.email.label }} <span class="small error">{{ form.email.errors }}</span></label> {{ form.email }}</li>
-                        <li><label>{{ form.notes.label }}: <span class="small hint">{{ form.notes.help_text }}</span></label><input type="text" name="notes" /></li>
+                        <li><label>{{ form.notes.label }}: <span
+    class="small hint">{{ form.notes.help_text }}</span></label>{{
+    form.notes }}</li>
                       </ol>
                   </fieldset></div>
                   <div class="section" id="submit"><fieldset>
